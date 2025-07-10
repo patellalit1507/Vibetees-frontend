@@ -3,27 +3,26 @@
 @tailwind components;
 @tailwind utilities;
 
-
-
 body {
   font-family: 'Roboto', sans-serif;
-  background: linear-gradient(135deg, #1a1a1a 0%, #2a2a2a 100%);
+  background: linear-gradient(135deg, #1a1a1a, #2a2a2a);
   color: #ffffff;
   margin: 0;
   padding: 0;
 }
 
 .neon-text {
-  text-shadow: 0 0 5px #ff00ff, 0 0 10px #ff00ff, 0 0 20px #ff00ff;
+  text-shadow: 0 0 5px #ff00ff, 0 0 10px #ff00ff;
 }
 
 .gradient-btn {
   background: linear-gradient(45deg, #ff00ff, #00ffff);
-  transition: transform 0.2s ease;
+  transition: transform 0.2s, box-shadow 0.2s;
 }
 
 .gradient-btn:hover {
   transform: scale(1.05);
+  box-shadow: 0 4px 15px rgba(0, 255, 255, 0.3);
 }
 
 .glitch {
@@ -32,7 +31,16 @@ body {
 }
 
 @keyframes glitch {
-  2%, 64% { transform: translate(2px, 0) skew(0deg); }
-  4%, 60% { transform: translate(-2px, 0) skew(0deg); }
+  2%, 64% { transform: translate(2px, 0); }
+  4%, 60% { transform: translate(-2px, 0); }
   62% { transform: translate(0, 0) skew(5deg); }
+}
+
+.product-card {
+  transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.product-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 4px 15px rgba(255, 0, 255, 0.3);
 }

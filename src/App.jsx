@@ -1,13 +1,28 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './App.css'
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import { AuthProvider } from './context/AuthContext';
+import { CartProvider } from './context/CartContext';
+import Landing from './pages/Landing';
+import Home from './pages/Home';
+import Login from './pages/Login';
+import Signup from './pages/Signup';
+import AdminDashboard from './pages/AdminDashboard';
+import Cart from './pages/Cart';
 
-function App() {
+export default function App() {
   return (
-    <div className="min-h-screen">
-      <h1 className="text-4xl font-bebas neon-text text-center mt-10">GenZ Threads</h1>
-    </div>
+    <AuthProvider>
+      <CartProvider>
+        <Router>
+          <Routes>
+            <Route path="/" element={<Landing />} />
+            <Route path="/home" element={<Home />} />
+            <Route path="/login" element={<Login />} />
+            <Route path="/signup" element={<Signup />} />
+            <Route path="/admin" element={<AdminDashboard />} />
+            <Route path="/cart" element={<Cart />} />
+          </Routes>
+        </Router>
+      </CartProvider>
+    </AuthProvider>
   );
 }
-export default App;
